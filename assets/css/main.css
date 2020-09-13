@@ -1,0 +1,58 @@
+/*background colors*/
+
+.backGray{
+    background-color: gray;
+}
+
+.backWhite{
+    background-color: white;
+}
+
+.backBlue{
+    background-color: blue;
+}
+
+.backRed{
+    background-color: red;
+}
+
+
+/*IN LINE BLOCK*/
+.inLineBlock{
+    display: inline-block;
+}
+
+.headImages{
+    margin: 10px;
+    width: 160px;
+    height: 120px;
+    background-color: yellowgreen;
+}
+
+.rowFrames{
+    margin: 20px;
+    border-color: black;
+    border-radius: 3px;
+}
+
+/*Buttons*/
+.genButtons{
+    border-radius: 5px;
+    border-color: yellow;
+    background-color: green;
+    font-size: 14px;
+    vertical-align: bottom;
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+
+/*Styling ID*/
+#mainFrame{
+    margin: 10px;
+    width: 100%;
+    height: 100%;
+    border-color: black;
+    border-radius: 3px;
+}
+
+
