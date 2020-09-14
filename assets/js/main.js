@@ -36,6 +36,7 @@ function buildBottomSonLevel(uniqueId, sonLevelDiv, tag)
 {
   let div=document.createElement(tag);
   
+  console.log(tag,div);
   div.id=uniqueId;
   
   sonLevelDiv.insertAdjacentElement("beforeend", div);
@@ -45,13 +46,13 @@ function buildBottomSonLevel(uniqueId, sonLevelDiv, tag)
 
 function buildHeaderButtons(){
 
-    for (let i=0;i<aTemp.length;i++){
-        //console.log(aTemp[i]);
+    for (let i=0;i<aHButtonTemp.length;i++){
+        //console.log(aHButtonTemp[i]);
         let buttonId="headButtonId_"+i;
         bHeadButtons[i] = buildBottomSonLevel(buttonId,dHeadRow,"button");
         bHeadButtons[i].classList.add("genButtons");
         bHeadButtons[i].classList.add("inLineBlock");
-        bHeadButtons[i].textContent = aTemp[i];
+        bHeadButtons[i].textContent = aHButtonTemp[i];
         bHeadButtons[i].style.width = currentIHeadLogoStyle.width;
         bHeadButtons[i].style.height = currentIHeadLogoStyle.height;
     }
@@ -63,18 +64,22 @@ function buildHeaderImg(){
     iHeadProfileImg.classList.add("inLineBlock");
     iHeadProfileImg.classList.add("headImages");    
 }
+
 function setCurrentProfile(){
     switch (currentProfile){
         case "User":
-            aTemp = aUserProfileBtnNames.slice();
+            aHButtonTemp = aUserProfileBtnNames.slice();
+            aVButtonTemp = aUserProfileVertBtnNames.slice();
             currentProfileImage="assets/img/userImg.png";
             break;
         case "Administrator":
-            aTemp = aAdminProfileBtnNames.slice();
+            aHButtonTemp = aAdminProfileBtnNames.slice();
+            aVButtonTemp = aAdminProfileVertBtnNames.slice();
             currentProfileImage="assets/img/adminImg.jpg"
             break;
         case "Controller":
-            aTemp = aControllerProfileBtnNames.slice();
+            aHButtonTemp = aControllerProfileBtnNames.slice();
+            aVButtonTemp = aControllerProfileVertBtnNames.slice();
             currentProfileImage="assets/img/controllerImg.jpg"
             break;
         default:
@@ -82,9 +87,20 @@ function setCurrentProfile(){
             break;
     }
     
-    buildHeaderButtons();
-    buildHeaderImg();
-    
+}
+
+function builVertBtnFrame(){
+    //Build the button list
+for (let i=0;i<aVButtonTemp.length;i++){
+    let buttonIdItem="vertButtonItemId_"+i;
+    let buttonId="vertButtonId_"+i;
+    bVertButtonsItem[i] = buildBottomSonLevel(buttonIdItem,uVBtnList,"li");   
+    bVertButtons[i] = buildBottomSonLevel(buttonId,bVertButtonsItem[i],"button");
+    console.log("bVerButtons of i: ",bVertButtons[i]);
+    bVertButtons[i].classList.add("genButtons");
+    bVertButtons[i].textContent = aVButtonTemp[i];
+}
+
 }
     
 //Global var 
@@ -94,7 +110,10 @@ let currentProfileImage="assets/img/userImg.png";
 //HTML BLOCKS
 let dBody=null;
 let bHeadButtons=[];
-let aTemp=[];
+let bVertButtonsItem=[];
+let bVertButtons=[];
+let aHButtonTemp=[];
+let aVButtonTemp=[];
 let iHeadProfileImg = null;
 let dMainFrame = null;
 let dHeadRow = null;
@@ -103,6 +122,7 @@ let dBodyRow = null;
 let aVertButton = null;
 let aCenterSection = null;
 let aNewsFeed = null;
+let uVBtnList = null;
 
 //STYLES
 let currentIHeadLogoStyle = null;
@@ -156,12 +176,14 @@ aCenterSection.classList.add("inLineBlock");
 aNewsFeed = buildBottomSonLevel("newsFrame",dBodyRow,"aside");
 aNewsFeed.classList.add("inLineBlock");
 
-
-
-
-
+uVBtnList = buildTopSonLevel("unordBtnList",aVertButton,"ul");
+uVBtnList.classList.add("backGreen");
 
 
 currentIHeadLogoStyle=getComputedStyle(iHeadLogo);
 
 setCurrentProfile();
+
+buildHeaderButtons();
+buildHeaderImg();
+builVertBtnFrame();

@@ -16,6 +16,10 @@
     background-color: red;
 }
 
+.backGreen{
+    background-color: green;
+}
+
 
 /*IN LINE BLOCK*/
 .inLineBlock{
@@ -51,6 +55,12 @@
     margin: 10px;
     width: 100%;
     height: 100%;
+    border-color: black;
+    border-radius: 3px;
+}
+
+#unordBtnList{
+    margin: 10px;
     border-color: black;
     border-radius: 3px;
 }
