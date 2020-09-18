@@ -44,6 +44,7 @@ function buildBottomSonLevel(uniqueId, sonLevelDiv, tag)
   return(div);
 }
 
+
 function buildHeaderButtons(){
 
     for (let i=0;i<aHButtonTemp.length;i++){
@@ -187,3 +188,8 @@ setCurrentProfile();
 buildHeaderButtons();
 buildHeaderImg();
 builVertBtnFrame();
+
+let myCalendar = getCalendar();
+myCalendar.id="calendarFrameId";
+aCenterSection.insertAdjacentElement("afterbegin", myCalendar);
+

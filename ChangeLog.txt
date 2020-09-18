@@ -1,4 +1,6 @@
 # ChangeLog
+## [1.0.2] - 18/09/2020
+## Introduced calendar library
 ## [1.0.1] - 14/09/2020
 ### Created
 ## [1.0.0] - 13/09/2020
